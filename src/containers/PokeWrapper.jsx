@@ -24,8 +24,8 @@ class PokeWrapper extends Component {
     handleSelectChange = (selectedOption) => {
         this.setState({ selectedOption }, function(){
             console.log('option', this.state.selectedOption)
-        })
-        
+        });
+    
         console.log(`Option selected:`, selectedOption);
         this.props.fetchBasedOnSubtype(selectedOption.value);
     }

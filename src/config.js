@@ -1,12 +1,12 @@
 import firebase from 'firebase';
 
 const config = {
-    apiKey: "AIzaSyA3vUlbaNcG6SAc8kWyFy5sIU53oLizuxk",
-    authDomain: "poke-react.firebaseapp.com",
-    databaseURL: "https://poke-react.firebaseio.com",
-    projectId: "poke-react",
-    storageBucket: "poke-react.appspot.com",
-    messagingSenderId: "376003568619"
+    apiKey: "AIzaSyAYgk9MBp7iXMk6YjKBxSrYfdHVi83A3oI",
+    authDomain: "hacktiv-x-overflow.firebaseapp.com",
+    databaseURL: "https://hacktiv-x-overflow.firebaseio.com",
+    projectId: "hacktiv-x-overflow",
+    storageBucket: "hacktiv-x-overflow.appspot.com",
+    messagingSenderId: "833013862564"
 };
 
 firebase.initializeApp(config);

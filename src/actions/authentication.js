@@ -3,5 +3,9 @@ export function login() {
 };
 
 export function logout() {
-    return {type: 'CHANGE_ISLOGIN', payload: false};
+    return {type: 'TO_LOGOUT', payload: false};
 };
+
+export function setUser(user) {
+    return {type: 'SET_USER', payload: user};
+}

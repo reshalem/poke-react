@@ -8,7 +8,7 @@ import Home from './containers/Home';
 import PrivateRoute from './components/PrivateRoute';
 import { Provider } from 'react-redux';
 import store from './store';
-// import NavBar from './components/Navbar';
+import NavBar from './components/Navbar';
 
 class App extends Component {
     render() {
@@ -18,12 +18,10 @@ class App extends Component {
                     <div className="App">
                         <header className="App-header">
                             <img src={logo} className="App-logo" alt="logo" />
-                            <p className="App-learn">
-                                Learn React
-                            </p>
+                            <div className="challenge"></div>
+                            <img src={logo} className="App-logo" alt="logo" />
                         </header>
-                        {/* <Route path="/" component={NavBar}/> */}
-                        {/* <NavBar ></NavBar> */}
+                        <Route path="/" component={NavBar}/>
                         <div className="container mb-5">
                             <Switch>
                                 <PrivateRoute exact path="/pokemons/:id" component={PokemonDetail} />

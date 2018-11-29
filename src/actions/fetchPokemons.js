@@ -8,6 +8,11 @@ export function fetchPokemons() {
             url: 'https://api.pokemontcg.io/v1/cards?subtype=Level%20Up'
         })
             .then(({data}) => {
+                for (let i = 0; i < data.cards.length; i++) {
+                    if (data.cards[i].ability === undefined) {
+                        data.cards.splice(i, 1);
+                    }
+                }
                 dispatch({type: 'FETCH_POKEMON_SUCCESS', payload: data.cards});
             })
             .catch((err) => {

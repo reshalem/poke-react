@@ -6,7 +6,7 @@ const defaultState = {
         series: '',
         set: '',
         setCode: '',
-        weakness: [{
+        weaknesses: [{
             type: ''
         }],
         types: [],

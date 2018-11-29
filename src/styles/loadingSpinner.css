@@ -1,8 +1,8 @@
 .lds-hourglass {
     position: relative;
     display: inline-block;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     background-image: url("https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG");
     background-size: 30%;
     background-repeat: no-repeat;
@@ -13,8 +13,8 @@
     content: " ";
     display: block;
     border-radius: 50%;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     margin: 6px;
     box-sizing: border-box;
     border: 26px solid #fff;

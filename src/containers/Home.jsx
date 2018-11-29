@@ -1,76 +1,21 @@
 import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
-import firebase, { auth, provider } from '../config';
 import { connect } from 'react-redux';
-import { login, logout } from '../actions/authentication';
 
 class Home extends Component {
-    state = {
-        user: null
-    }
-
-    login = () => {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                console.log('user', result.user);
-                const user = result.user;
-                this.setState({
-                    user: user
-                });
-                localStorage.setItem('token', 'test-react');
-                this.props.login();
-            })
-            .catch((error) => {
-                console.log('Firebase Auth Error: ', error);
-            });
-    }
-
-    logout = () => {
-        auth.signOut()
-            .then(() => {
-                this.setState({
-                    user: null
-                });
-                localStorage.removeItem('token');
-                this.props.logout();
-            })
-            .catch((error) => {
-                console.log('Firebase SignOut Error: ', error);
-            });
-    }
-
-    checkToken = () => {
-        const token = localStorage.getItem('token');
-        
-        if (token) {
-            this.props.login();
-        } else {
-            this.props.logout();
-        }
-    }
-
-    componentDidMount() {
-        this.checkToken();
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({
-                    user: user
-                });
-                this.checkToken();
-            }
-        });
-    }
-
     render() {
         return (
             <div>
-                <Navbar login={this.login} isLogin={this.props.isLogin} logout={this.logout} />
-                <h1 className="display-2">HOME</h1>
-                {this.state.user ? 
+                <h1 className="display-2 mt-4 mb-4" id="user-h1">User</h1>
+                {this.props.user ? 
                     <div>
-                        <h1>{this.state.user.displayName}</h1>
-                        <h2>{this.state.user.email}</h2>
-                    </div> : <h1>Error</h1>
+                        <img src={this.props.user.photoURL} alt="avatar" id="avatar" className="mb-4"></img>
+                        <h1 id="user-h1">{this.props.user.displayName}</h1>
+                        <h2 id="user-h1">{this.props.user.email}</h2>
+                    </div> : 
+                    <div>
+                        <h1 className="lead">You're not logged in.</h1>
+                        <h1 className="lead"> Please login first to be able to see card details.</h1>
+                    </div>
                 }
             </div>
         );
@@ -79,15 +24,9 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLogin: state.login.isLogin
+        isLogin: state.login.isLogin,
+        user: state.login.user
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        login: () => dispatch(login()),
-        logout: () => dispatch(logout())
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, null)(Home);

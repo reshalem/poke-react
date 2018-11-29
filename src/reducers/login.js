@@ -1,5 +1,6 @@
 const defaultState = {
-    isLogin: false
+    isLogin: false,
+    user: null
 };
 
 export default function(state=defaultState, action) {
@@ -8,6 +9,17 @@ export default function(state=defaultState, action) {
             return {
                 ...state, 
                 isLogin: action.payload
+            }
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.payload
+            }
+        case 'TO_LOGOUT':
+            return {
+                ...state,
+                isLogin: action.payload,
+                user: null
             }
         default: 
             return state;

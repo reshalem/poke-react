@@ -24,7 +24,7 @@ class PokemonDetail extends Component {
                             <h1 className="text-right" id="title" title="set-code">| {this.props.pokemon.setCode}</h1>
                         </div>
                     </div>
-                    <div className="border mt-4 mx-auto d-flex justify-content-between" id="poke-detail">
+                    <div className="mt-4 mx-auto d-flex justify-content-between" id="poke-detail">
                         <img id="img-detail" src={this.props.pokemon.imageUrlHiRes} alt=""/>
                         <div className="d-flex flex-column align-items-start justify-content-center ml-4 px-4" id="detail-p">
                             <div className="d-flex justify-content-between">

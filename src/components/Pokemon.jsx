@@ -16,7 +16,7 @@ const Pokemon = (props) => {
     return (
         <div className="card mt-3 mx-1">
             <img className="card-img-top img-fluid mb-2" style={imgStyle} src={props.pokemon.imageUrl} alt="" />
-            <div className="card-body mb-2">
+            <div className="card-body mb-0">
                 <div className="d-flex justify-content-between align-items-center">
                     <h4 className="card-title lead font-weight-bold">{props.pokemon.name}</h4>
                     <h4 className="card-title lead">{props.pokemon.nationalPokedexNumber}</h4>
